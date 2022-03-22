@@ -1,6 +1,7 @@
 import React from 'react';
 import {popularPosts} from "../../constant";
 
+
 const PopularPosts = () => {
     return (
         <>
