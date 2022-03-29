@@ -21,3 +21,11 @@
 .container p{
     font-size: 14px!important;
 }
+
+.df{
+    display: flex;
+}
+
+.df p{
+    margin-right: 10px;
+}

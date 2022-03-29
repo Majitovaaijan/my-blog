@@ -4,6 +4,7 @@ import BlogEntries from "../../components/BlogEntries/BlogEntries";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Footer from "../../components/Footer/Footer";
 
+
 const Main = () => {
     return (
             <>
