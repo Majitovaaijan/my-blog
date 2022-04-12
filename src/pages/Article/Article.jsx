@@ -1,18 +1,25 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom"
 
 import styles from "./Article.module.css"
 import Comments from './Comments';
-import {posts} from "../../constant"
+import {BASE_URL} from "../../constant"
 
 
 
 const Article = () => {
     const params = useParams()
+
+    const[post, setPost] = useState({})
     const postId = parseInt(params.id);
-    const postData = posts.find((item) =>{
-        return item.id === postId
-    })
+
+    useEffect(() =>{
+
+        const url = BASE_URL + '/posts/' + postId;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => setPost(data))
+    },[])
 
 
 
@@ -20,23 +27,20 @@ const Article = () => {
         <div className={styles.main}>
             <div className={styles.container}>
                 <img
-                    src={postData.user.userImg} alt=""/>
-                <p>{postData.user.name}{postData.user.data}</p> <br/>
+                    src={post.userImg} alt=""/>
+                <p>{post.name}{post.data}</p> <br/>
             </div>
-            <h1>{postData.title}</h1>
+            <h1>{post.title}</h1>
             <div className={styles.df}>
             {
-                postData.tag.map((item) =>{
-                return <p>{item}</p>
-            })
+                post.tag
             }
             </div>
-            <img src={postData.imageUrl}/> <br/>
-            <p>{postData.desc}</p>
+            <img src={post.imageUrl}/> <br/>
+            <p>{post.desc}</p>
              <br/> <br/>
-            <Comments/>
+            <Comments postId={postId}/>
         </div>
     );
 };
-
 export default Article;

@@ -1,3 +1,5 @@
+export const BASE_URL = 'http://localhost:3000'
+
 export const posts = [
     {
         id:1,
@@ -201,4 +203,21 @@ export const cards = [
         website: 'www.atahan.com',
         companyName: 'Amazon'
     }
+]
+
+export const basket = [
+    {
+        id:1,
+        number:1,
+        name:"Чили",
+        count:5,
+        total:3000
+    },
+    {
+        id:1,
+        number:2,
+        name:"Детская",
+        count:1,
+        total:458
+    },
 ]
